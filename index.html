@@ -685,53 +685,62 @@
         <span style="color:rgba(255,255,255,0.45);font-size:0.82rem">32 Song Hành, Phường Bình Trưng TP.HCM</span>
       </div>
     </div>
-    <div class="reveal">
+    
+    <!-- SỬA TẠI ĐÂY: Đổi thẻ <div> bên ngoài thành thẻ <form> và thêm id="contactForm" -->
+    <form id="contactForm" class="reveal">
       <div class="form-row">
         <div class="form-group">
           <label>Họ và Tên *</label>
-          <input type="text" placeholder="Nguyễn Văn A">
+          <!-- Thêm name="name" và required (bắt buộc nhập) -->
+          <input type="text" name="name" placeholder="Nguyễn Văn A" required>
         </div>
         <div class="form-group">
           <label>Số Điện Thoại *</label>
-          <input type="tel" placeholder="0909 xxx xxx">
+          <!-- Thêm name="phone" và required (bắt buộc nhập) -->
+          <input type="tel" name="phone" placeholder="0909 xxx xxx" required>
         </div>
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="email@example.com">
+        <!-- Thêm name="email" -->
+        <input type="email" name="email" placeholder="email@example.com">
       </div>
       <div class="form-group">
         <label>Loại Căn Hộ Quan Tâm</label>
-        <select>
-          <option>Chọn loại căn hộ</option>
-          <option>1 Phòng ngủ (1PN)</option>
-          <option>1 Phòng ngủ + (1PN+)</option>
-          <option>2 Phòng ngủ (2PN)</option>
-          <option>2 Phòng ngủ + (2PN+)</option>
-          <option>3 Phòng ngủ (3PN)</option>
+        <!-- Thêm name="apartment_type" -->
+        <select name="apartment_type">
+          <option value="Chưa chọn">Chọn loại căn hộ</option>
+          <option value="1PN">1 Phòng ngủ (1PN)</option>
+          <option value="1PN+">1 Phòng ngủ + (1PN+)</option>
+          <option value="2PN">2 Phòng ngủ (2PN)</option>
+          <option value="2PN+">2 Phòng ngủ + (2PN+)</option>
+          <option value="3PN">3 Phòng ngủ (3PN)</option>
         </select>
       </div>
       <div class="form-group">
         <label>Mục Đích</label>
-        <select>
-          <option>Chọn mục đích</option>
-          <option>Để ở</option>
-          <option>Đầu tư</option>
-          <option>Vừa ở vừa đầu tư</option>
+        <!-- Thêm name="purpose" -->
+        <select name="purpose">
+          <option value="Chưa chọn">Chọn mục đích</option>
+          <option value="Để ở">Để ở</option>
+          <option value="Đầu tư">Đầu tư</option>
+          <option value="Vừa ở vừa đầu tư">Vừa ở vừa đầu tư</option>
         </select>
       </div>
       <div class="form-group">
         <label>Ghi Chú</label>
-        <textarea placeholder="Thông tin thêm..." rows="3" style="resize:vertical"></textarea>
+        <!-- Thêm name="note" -->
+        <textarea name="note" placeholder="Thông tin thêm..." rows="3" style="resize:vertical"></textarea>
       </div>
-      <button class="form-submit" onclick="alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ trong thời gian sớm nhất.')">
+      
+      <!-- SỬA TẠI ĐÂY: Đổi thành type="submit" và xóa bỏ sự kiện onclick="alert(...)" cũ -->
+      <button type="submit" class="form-submit">
         ✦ Gửi Đăng Ký Ngay
       </button>
       <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.5">* Thông tin của Quý khách sẽ không được công khai hoặc dùng với mục đích spam.</p>
-    </div>
+    </form>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
