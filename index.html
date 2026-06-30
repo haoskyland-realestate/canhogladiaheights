@@ -398,19 +398,40 @@
 <body>
 
 <!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">
-    <span class="nav-logo-text">ĐÔNG TÂY LAND</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#">Trang Chủ</a></li>
-    <li><a href="#">Về Chúng Tôi</a></li>
-    <li><a href="#">Dự Án</a></li>
-    <li><a href="#">Tin Tức</a></li>
-    <li><a href="#contact">Liên Hệ</a></li>
-  </ul>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Đặt Lịch Ngay</button>
-</nav>
+  <!-- Desktop Menu -->
+        <div class="hidden xl:flex flex-wrap justify-end gap-x-4 gap-y-2 items-center flex-1">
+          <a href="#tong-quan" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Tổng quan</a>
+          <a href="#vi-tri" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Vị trí</a>
+          <a href="#mat-bang" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Mặt bằng</a>
+          <a href="#toa-nha" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Tòa nhà</a>
+          <a href="#bang-hang" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Bảng hàng</a>
+          <a href="#quy-can" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Quỹ căn</a>
+          <a href="#anh-360" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Ảnh 360°</a>
+          <a href="#chinh-sach" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Chính sách bán hàng</a>
+          <a href="#tien-do" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Tiến độ</a>
+          <a href="#tai-lieu" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Tài liệu</a>
+          <a href="#tin-tuc" class="text-[12px] font-bold uppercase tracking-wider nav-link-3d text-gray-100 drop-shadow-md">Tin tức</a>
+          <button class="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full text-xs font-bold transition-all shadow-lg hover:scale-105 ml-2">NHẬN BÁO GIÁ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden xl:hidden bg-white shadow-xl absolute w-full left-0 top-full flex-col px-4 pt-2 pb-6 space-y-2 max-h-[75vh] overflow-y-auto">
+      <a href="#tong-quan" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Tổng quan</a>
+      <a href="#vi-tri" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Vị trí</a>
+      <a href="#mat-bang" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Mặt bằng</a>
+      <a href="#toa-nha" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Tòa nhà</a>
+      <a href="#bang-hang" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Bảng hàng</a>
+      <a href="#quy-can" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Quỹ căn</a>
+      <a href="#anh-360" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Ảnh 360°</a>
+      <a href="#chinh-sach" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Chính sách bán hàng</a>
+      <a href="#tien-do" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Tiến độ</a>
+      <a href="#tai-lieu" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Tài liệu</a>
+      <a href="#tin-tuc" class="block px-3 py-2 text-sm font-bold text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors" onclick="closeMobileMenu()">Tin tức</a>
+      <button class="w-full mt-4 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-md transition-colors">Nhận Báo Giá Ngay</button>
+    </div>
+  </nav>
 
 <!-- HERO -->
 <section class="hero">
