@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gladia By The Waters – Căn hộ cao cấp đầu tiên của Keppel & Khang Điền tại TP.HCM</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #b89a5a;
+    --gold-light: #d4b87a;
+    --dark: #0e0e0e;
+    --dark2: #161616;
+    --dark3: #1e1d1b;
+    --cream: #f5f0e8;
+    --text: #2c2c2c;
+    --text-light: #666;
+    --white: #fff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 70px;
+    background: rgba(14,14,14,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,154,90,0.2);
+    transition: all 0.3s;
+  }
+  .nav-logo { height: 38px; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--dark); border: none; cursor: pointer;
+    padding: 9px 22px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; font-family: 'Be Vietnam Pro', sans-serif;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ===== HERO ===== */
+  .hero {
+    height: 100vh; min-height: 680px;
+    position: relative; display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0a1628 0%, #162040 40%, #0e1a10 100%);
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: url('https://dongtayland.vn/wp-content/uploads/2026/05/4.5.1-HERO-UPDATE.jpg') center/cover no-repeat;
+    opacity: 0.55;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 80px 80px;
+    max-width: 820px;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero-badge {
+    display: inline-block; border: 1px solid var(--gold);
+    color: var(--gold); font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 18px; margin-bottom: 22px; font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700; line-height: 1.18;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+  .hero-sub {
+    font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.8);
+    max-width: 580px; margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    border: none; cursor: pointer; padding: 14px 36px;
+    font-size: 0.82rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    font-family: 'Be Vietnam Pro', sans-serif; transition: all 0.25s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.4); cursor: pointer; padding: 14px 36px;
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    font-family: 'Be Vietnam Pro', sans-serif; transition: all 0.25s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ===== SCROLL INDICATOR ===== */
+  .scroll-down {
+    position: absolute; bottom: 30px; right: 80px; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .scroll-down::after {
+    content: ''; width: 1px; height: 50px;
+    background: linear-gradient(to bottom, rgba(184,154,90,0.8), transparent);
+  }
+
+  /* ===== SECTION COMMON ===== */
+  section { padding: 90px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .section-label {
+    display: inline-block; color: var(--gold); font-size: 0.68rem;
+    letter-spacing: 4px; text-transform: uppercase; font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 700; line-height: 1.25; margin-bottom: 20px;
+  }
+  .gold-line {
+    width: 60px; height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin: 20px 0;
+  }
+  .section-desc { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8; }
+
+  /* ===== HIGHLIGHTS BAR ===== */
+  .highlights {
+    background: var(--gold);
+    padding: 0;
+  }
+  .highlights-inner {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px; margin: 0 auto;
+  }
+  .highlight-item {
+    padding: 28px 24px; border-right: 1px solid rgba(0,0,0,0.15);
+    text-align: center; color: var(--dark);
+  }
+  .highlight-item:last-child { border-right: none; }
+  .highlight-item strong { display: block; font-size: 1.6rem; font-weight: 800; font-family: 'Playfair Display', serif; }
+  .highlight-item span { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: 0.75; }
+
+  /* ===== INTRO SECTION ===== */
+  .intro { background: var(--dark2); }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .intro-image { position: relative; }
+  .intro-image img {
+    width: 100%; height: 520px; object-fit: cover;
+    display: block;
+  }
+  .intro-image::before {
+    content: ''; position: absolute;
+    top: -15px; left: -15px; right: 15px; bottom: 15px;
+    border: 1px solid var(--gold); z-index: 0; opacity: 0.4;
+  }
+  .intro-image img { position: relative; z-index: 1; }
+  .bullet-list { list-style: none; margin-top: 24px; }
+  .bullet-list li {
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6;
+    display: flex; gap: 12px;
+  }
+  .bullet-list li::before { content: '✦'; color: var(--gold); flex-shrink: 0; font-size: 0.7rem; margin-top: 3px; }
+
+  /* ===== LOCATION ===== */
+  .location { background: var(--dark3); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .connect-list { list-style: none; margin-top: 24px; }
+  .connect-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 12px 0; border-bottom: 1px solid rgba(184,154,90,0.12);
+    font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.5;
+  }
+  .connect-list li .icon { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .map-placeholder {
+    width: 100%; height: 440px;
+    background: linear-gradient(135deg, #111 0%, #1a2030 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .map-placeholder img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+
+  /* ===== AMENITIES ===== */
+  .amenities { background: var(--dark2); }
+  .amenities-header { text-align: center; max-width: 680px; margin: 0 auto 60px; }
+  .amenities-header .gold-line { margin: 20px auto; }
+  .amenities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .amenity-card {
+    position: relative; overflow: hidden; aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+  .amenity-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .amenity-card:hover img { transform: scale(1.07); }
+  .amenity-card .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+    display: flex; align-items: flex-end; padding: 20px;
+    transition: background 0.3s;
+  }
+  .amenity-card:hover .overlay { background: linear-gradient(to top, rgba(184,154,90,0.5) 0%, transparent 60%); }
+  .amenity-card .label { font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; }
+
+  /* ===== APARTMENT ===== */
+  .apartment { background: var(--dark); }
+  .apt-header { margin-bottom: 50px; }
+  .apt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 2px; }
+  .apt-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .apt-img { position: relative; overflow: hidden; }
+  .apt-img img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.5s; }
+  .apt-img:hover img { transform: scale(1.05); }
+
+  /* ===== INFRA ===== */
+  .infra { background: var(--dark3); }
+  .infra-tabs { display: flex; gap: 0; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .infra-tab {
+    padding: 12px 28px; cursor: pointer; font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.4);
+    border-bottom: 2px solid transparent; transition: all 0.2s; margin-bottom: -1px;
+  }
+  .infra-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .infra-panels > div { display: none; }
+  .infra-panels > div.active { display: block; }
+  .infra-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .infra-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,154,90,0.15);
+    padding: 24px; display: flex; gap: 18px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .infra-card:hover { border-color: var(--gold); }
+  .infra-icon {
+    width: 44px; height: 44px; background: rgba(184,154,90,0.12);
+    border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1.2rem;
+  }
+  .infra-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+  .infra-card p { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  /* ===== OVERVIEW ===== */
+  .overview { background: var(--dark2); }
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .overview-specs { list-style: none; margin-top: 24px; }
+  .overview-specs li {
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.88rem;
+  }
+  .overview-specs li .key { color: rgba(255,255,255,0.5); font-weight: 400; }
+  .overview-specs li .val { color: var(--white); font-weight: 600; }
+
+  /* ===== CONTACT FORM ===== */
+  .contact-section {
+    background: var(--dark);
+    padding: 100px 0;
+  }
+  .contact-inner {
+    max-width: 900px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px;
+  }
+  .contact-left h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 16px; }
+  .contact-left p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 30px; }
+  .contact-detail { display: flex; flex-direction: column; gap: 14px; }
+  .contact-detail a {
+    color: var(--gold-light); text-decoration: none; font-size: 0.9rem; font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 7px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white); font-family: 'Be Vietnam Pro', sans-serif; font-size: 0.88rem;
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group input::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group select option { background: #1e1e1e; color: white; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-submit {
+    width: 100%; padding: 15px; background: var(--gold); color: var(--dark);
+    border: none; cursor: pointer; font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700; font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase;
+    transition: background 0.2s; margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--gold-light); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #080808;
+    padding: 60px 0 30px;
+    border-top: 1px solid rgba(184,154,90,0.2);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px;
+    margin-bottom: 50px;
+  }
+  .footer-brand .brand-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 20px; }
+  .social-links { display: flex; gap: 12px; }
+  .social-links a {
+    width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .social-links a:hover { border-color: var(--gold); color: var(--gold); }
+  .footer-col h4 { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 700; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto; padding: 24px 40px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== FLOATING CTA ===== */
+  .floating-cta {
+    position: fixed; bottom: 30px; right: 30px; z-index: 99;
+    background: var(--gold); color: var(--dark);
+    padding: 14px 24px; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; border: none; font-family: 'Be Vietnam Pro', sans-serif;
+    box-shadow: 0 8px 30px rgba(184,154,90,0.4);
+    animation: pulse 2.5s infinite;
+    text-decoration: none; display: inline-block;
+  }
+  .floating-phone {
+    position: fixed; bottom: 85px; right: 30px; z-index: 99;
+    background: #25D366; color: white;
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    text-decoration: none; transition: transform 0.2s;
+  }
+  .floating-phone:hover { transform: scale(1.1); }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 8px 30px rgba(184,154,90,0.4); }
+    50% { box-shadow: 0 8px 40px rgba(184,154,90,0.7); }
+  }
+
+  /* fade in on scroll */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .intro-grid, .location-grid, .overview-grid, .contact-inner { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .highlights-inner { grid-template-columns: repeat(2, 1fr); }
+    .amenities-grid { grid-template-columns: 1fr 1fr; }
+    .infra-grid { grid-template-columns: 1fr; }
+    .hero-content { padding: 0 30px 60px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-text">ĐÔNG TÂY LAND</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Trang Chủ</a></li>
+    <li><a href="#">Về Chúng Tôi</a></li>
+    <li><a href="#">Dự Án</a></li>
+    <li><a href="#">Tin Tức</a></li>
+    <li><a href="#contact">Liên Hệ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Đặt Lịch Ngay</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Chính Thức Nhận Booking ✦</div>
+    <h1>Gladia<br><em>By The Waters</em></h1>
+    <p class="hero-sub">Biểu tượng cao tầng đánh dấu sự xuất hiện của dòng căn hộ đầu tiên do <strong>Keppel & Khang Điền</strong> phát triển — 2 ông lớn bảo chứng cho Uy tín · Chất lượng · Giá trị an cư bền vững.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">📋 Booking Ngay</a>
+      <a class="btn-outline" href="#overview">Xem Tổng Quan</a>
+    </div>
+  </div>
+  <div class="scroll-down">SCROLL</div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<div class="highlights">
+  <div class="highlights-inner">
+    <div class="highlight-item">
+      <strong>616</strong>
+      <span>Căn hộ</span>
+    </div>
+    <div class="highlight-item">
+      <strong>70 ha</strong>
+      <span>Khu đô thị</span>
+    </div>
+    <div class="highlight-item">
+      <strong>15</strong>
+      <span>Tầng cao</span>
+    </div>
+    <div class="highlight-item">
+      <strong>Q4/2027</strong>
+      <span>Dự kiến bàn giao</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-image reveal">
+        <img src="https://dongtayland.vn/wp-content/uploads/2026/04/Cao-tang.jpg" alt="Gladia Tower" onerror="this.style.background='linear-gradient(135deg,#1a2a1a,#2a3a2a)';this.removeAttribute('src')">
+      </div>
+      <div class="intro-text reveal">
+        <div class="section-label">Giới Thiệu Dự Án</div>
+        <h2 class="section-title">Nằm Trong Khu Đô Thị Lớn Nhất<br>Của Khang Điền Tại Quận 2</h2>
+        <div class="gold-line"></div>
+        <ul class="bullet-list">
+          <li>Khu đô thị Gladia City quy mô <strong>70 ha</strong> — Một trong 3 khu đô thị quy hoạch chuẩn chỉnh tại Bình Trưng, Quận 2.</li>
+          <li>Sự kết hợp hoàn hảo của Chất lượng chuẩn quốc tế & Hệ tiện ích đầy đủ, được phát triển bởi thương hiệu uy tín hàng đầu thị trường.</li>
+          <li>Đầy đủ tiện ích: trường liên cấp, bệnh viện quốc tế, 5 công viên chủ đề, khu thương mại, clubhouse…</li>
+          <li>Giải quyết nỗi lo đi học, đi làm, giải trí, mua sắm cho gia đình trẻ & đa thế hệ.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location">
+  <div class="container">
+    <div class="location-grid">
+      <div class="reveal">
+        <div class="section-label">Vị Trí</div>
+        <h2 class="section-title">"Tâm Điểm Vàng"<br>Khu Đông TP. HCM</h2>
+        <div class="gold-line"></div>
+        <p class="section-desc">Khu vực được quy hoạch là trung tâm dịch vụ cảng, logistics & công nghệ cao, tập trung lượng lớn chuyên gia và quản lý cấp cao.</p>
+        <ul class="connect-list">
+          <li><span class="icon">▶</span> Quận 7, KCX Tân Thuận chỉ <strong>10 phút</strong></li>
+          <li><span class="icon">▶</span> <strong>5–10 phút</strong> đến Khu công nghệ cao TP.HCM, Cảng Cát Lái</li>
+          <li><span class="icon">▶</span> <strong>10–15 phút</strong> đến Trung tâm Tài chính quốc tế Thủ Thiêm</li>
+          <li><span class="icon">▶</span> <strong>20 phút</strong> kết nối Sân bay Long Thành</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="map-placeholder">
+          <img src="https://dongtayland.vn/wp-content/uploads/2026/03/FIX-KDH_Saleskit_Full_20.11.jpg" alt="Bản đồ vị trí" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities">
+  <div class="container">
+    <div class="amenities-header reveal">
+      <div class="section-label">Tiện Ích</div>
+      <h2 class="section-title">Tiện Ích Nội Khu<br>Phong Cách Nghỉ Dưỡng</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Thiết kế theo phong cách resort chuẩn Singapore — hồ bơi, gym, spa, khu TMDV — tập trung vào trải nghiệm cư dân.</p>
+    </div>
+    <div class="amenities-grid reveal">
+      <div class="amenity-card">
+        <img src="https://dongtayland.vn/wp-content/uploads/2025/05/tien-ich-3-1.png" alt="Hồ bơi" onerror="this.style.background='#1a2a2a'">
+        <div class="overlay"><span class="label">Hồ Bơi Resort</span></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://dongtayland.vn/wp-content/uploads/2025/05/tien-ich-1-1.png" alt="Gym" onerror="this.style.background='#2a1a1a'">
+        <div class="overlay"><span class="label">Gym & Spa</span></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://dongtayland.vn/wp-content/uploads/2025/05/tien-ich-2-2.png" alt="Công viên" onerror="this.style.background='#1a2a1a'">
+        <div class="overlay"><span class="label">Công Viên Xanh</span></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://dongtayland.vn/wp-content/uploads/2026/04/GLA-04.jpg" alt="Lobby" onerror="this.style.background='#2a2a1a'">
+        <div class="overlay"><span class="label">Grand Lobby</span></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://dongtayland.vn/wp-content/uploads/2026/04/GLA-03.jpg" alt="Thương mại" onerror="this.style.background='#1a1a2a'">
+        <div class="overlay"><span class="label">Khu Thương Mại</span></div>
+      </div>
+      <div class="amenity-card">
+        <img src="https://dongtayland.vn/wp-content/uploads/2026/04/z7730188647734_bef3a6084ab1a6f6e949f8caaca3361f.jpg" alt="Khuôn viên" onerror="this.style.background='#2a1a2a'">
+        <div class="overlay"><span class="label">Khuôn Viên Xanh</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APARTMENT DESIGN -->
+<section class="apartment">
+  <div class="container">
+    <div class="apt-header reveal">
+      <div class="section-label">Thiết Kế Căn Hộ</div>
+      <h2 class="section-title">Thông Minh & Tối Ưu</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc" style="max-width:680px">100% căn thiết kế thông gió tự nhiên, ban công rộng, cửa kính trượt đón gió và view sông / công viên.</p>
+    </div>
+    <div class="apt-grid reveal">
+      <div class="apt-img"><img src="https://dongtayland.vn/wp-content/uploads/2026/03/noi-that-safira.jpg" alt="Nội thất" onerror="this.style.background='#1a1a1a'"></div>
+      <div class="apt-img"><img src="https://dongtayland.vn/wp-content/uploads/2026/03/khong-gian-can-ho-safira-3-phong.jpg" alt="Phòng khách" onerror="this.style.background='#1a1a1a'"></div>
+      <div class="apt-img"><img src="https://dongtayland.vn/wp-content/uploads/2026/03/can-3-phong-ngu-safira.jpg" alt="Phòng ngủ" onerror="this.style.background='#1a1a1a'"></div>
+    </div>
+    <div class="apt-grid-2 reveal" style="margin-top:2px">
+      <div class="apt-img"><img src="https://dongtayland.vn/wp-content/uploads/2026/03/PK-5.jpg" alt="Phòng khách 2" onerror="this.style.background='#1a1a1a'"></div>
+      <div class="apt-img"><img src="https://dongtayland.vn/wp-content/uploads/2026/03/PK-1.jpg" alt="Bếp" onerror="this.style.background='#1a1a1a'"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section class="infra">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px">
+      <div class="section-label">Hạ Tầng</div>
+      <h2 class="section-title">Mọi Động Lực Hạ Tầng<br>Đều Hướng Đến Gladia</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="infra-tabs">
+      <div class="infra-tab active" onclick="switchTab('short')">Ngắn Hạn (2026–2028)</div>
+      <div class="infra-tab" onclick="switchTab('long')">Dài Hạn (2026–2030+)</div>
+    </div>
+    <div class="infra-panels">
+      <div id="tab-short" class="active">
+        <div class="infra-grid reveal">
+          <div class="infra-card">
+            <div class="infra-icon">🛣️</div>
+            <div>
+              <h4>Đường Võ Chí Công</h4>
+              <p>Mở rộng lên 12 làn xe — trục chiến lược nối Đông - Nam Sài Gòn, tạo sóng tăng giá ngắn hạn.</p>
+            </div>
+          </div>
+          <div class="infra-card">
+            <div class="infra-icon">🔀</div>
+            <div>
+              <h4>Nút Giao An Phú</h4>
+              <p>Dự kiến hoàn thành năm 2026, giải quyết điểm nghẽn giao thông cửa ngõ phía Đông.</p>
+            </div>
+          </div>
+          <div class="infra-card">
+            <div class="infra-icon">🚢</div>
+            <div>
+              <h4>Nút Giao Mỹ Thủy</h4>
+              <p>Đường Liên cảng Cát Lái – Phú Hữu — tách luồng container khỏi khu dân cư.</p>
+            </div>
+          </div>
+          <div class="infra-card">
+            <div class="infra-icon">🏙️</div>
+            <div>
+              <h4>Trung Tâm Thủ Thiêm</h4>
+              <p>Chỉ 10–15 phút di chuyển đến khu tài chính quốc tế Thủ Thiêm đang phát triển mạnh.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab-long">
+        <div class="infra-grid reveal">
+          <div class="infra-card">
+            <div class="infra-icon">✈️</div>
+            <div>
+              <h4>Sân Bay Long Thành</h4>
+              <p>Khai thác thương mại năm 2026. Cách chưa đến 20 phút — đón trọn nhu cầu từ chuyên gia quốc tế.</p>
+            </div>
+          </div>
+          <div class="infra-card">
+            <div class="infra-icon">🚗</div>
+            <div>
+              <h4>Cao Tốc TP.HCM – Long Thành</h4>
+              <p>Đang mở rộng lên 8–10 làn xe, dự kiến hoàn thành tháng 3/2027.</p>
+            </div>
+          </div>
+          <div class="infra-card">
+            <div class="infra-icon">🚇</div>
+            <div>
+              <h4>Metro Số 6</h4>
+              <p>Tuyến metro chiến lược kết nối khu Đông với trung tâm thành phố.</p>
+            </div>
+          </div>
+          <div class="infra-card">
+            <div class="infra-icon">🚄</div>
+            <div>
+              <h4>Đường Sắt Cao Tốc Bắc–Nam</h4>
+              <p>Tuyến đường sắt tốc độ cao đang được ưu tiên triển khai — nằm ngay cạnh dự án.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview" id="overview">
+  <div class="container">
+    <div class="overview-grid">
+      <div class="reveal">
+        <div class="section-label">Tổng Quan</div>
+        <h2 class="section-title">Thông Tin<br>Dự Án</h2>
+        <div class="gold-line"></div>
+        <ul class="overview-specs">
+          <li><span class="key">Vị trí</span><span class="val">Võ Chí Công, Bình Trưng, Q.2, TP.HCM</span></li>
+          <li><span class="key">Chủ đầu tư</span><span class="val">Keppel & Khang Điền</span></li>
+          <li><span class="key">Số căn hộ</span><span class="val">616 căn</span></li>
+          <li><span class="key">Diện tích đất</span><span class="val">1,29 ha</span></li>
+          <li><span class="key">Chiều cao</span><span class="val">1 hầm + 3 khối đế 15 tầng</span></li>
+          <li><span class="key">Loại hình</span><span class="val">1PN / 1PN+ / 2PN / 2PN+ / 3PN</span></li>
+          <li><span class="key">Khởi công</span><span class="val">Tháng 1/2026</span></li>
+          <li><span class="key">Bàn giao</span><span class="val">Quý 4/2027 (dự kiến)</span></li>
+          <li><span class="key">Pháp lý</span><span class="val">Sở hữu lâu dài</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <img src="https://dongtayland.vn/wp-content/uploads/2026/04/Cover-2.jpg" alt="Tổng quan dự án" style="width:100%;height:500px;object-fit:cover" onerror="this.style.background='linear-gradient(135deg,#1a2030,#2a3040)'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <div class="section-label">Liên Hệ</div>
+      <h2>Đăng Ký<br>Tư Vấn Ngay</h2>
+      <div class="gold-line"></div>
+      <p>Điền thông tin bên cạnh hoặc liên hệ trực tiếp để nhận tài liệu dự án & được tư vấn miễn phí.</p>
+      <div class="contact-detail">
+        <a href="tel:0977487777">📞 0977 48 7777</a>
+        <a href="mailto:info@dongtayland.vn">✉ info@dongtayland.vn</a>
+        <span style="color:rgba(255,255,255,0.45);font-size:0.82rem">192 Trần Não, Phường An Khánh, TP.HCM</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Họ và Tên *</label>
+          <input type="text" placeholder="Nguyễn Văn A">
+        </div>
+        <div class="form-group">
+          <label>Số Điện Thoại *</label>
+          <input type="tel" placeholder="0909 xxx xxx">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="email@example.com">
+      </div>
+      <div class="form-group">
+        <label>Loại Căn Hộ Quan Tâm</label>
+        <select>
+          <option>Chọn loại căn hộ</option>
+          <option>1 Phòng ngủ (1PN)</option>
+          <option>1 Phòng ngủ + (1PN+)</option>
+          <option>2 Phòng ngủ (2PN)</option>
+          <option>2 Phòng ngủ + (2PN+)</option>
+          <option>3 Phòng ngủ (3PN)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mục Đích</label>
+        <select>
+          <option>Chọn mục đích</option>
+          <option>Để ở</option>
+          <option>Đầu tư</option>
+          <option>Vừa ở vừa đầu tư</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Ghi Chú</label>
+        <textarea placeholder="Thông tin thêm..." rows="3" style="resize:vertical"></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ trong thời gian sớm nhất.')">
+        ✦ Gửi Đăng Ký Ngay
+      </button>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.5">* Thông tin của Quý khách sẽ không được công khai hoặc dùng với mục đích spam.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">ĐÔNG TÂY LAND</div>
+      <p>Đối tác tư vấn bất động sản cao cấp uy tín tại TP.HCM — Chuyên phân phối các dự án nổi bật của Khang Điền, Keppel và nhiều chủ đầu tư lớn.</p>
+      <div class="social-links">
+        <a href="https://facebook.com/bdsdongtayland" target="_blank">f</a>
+        <a href="#" target="_blank">▶</a>
+        <a href="#" target="_blank">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Dự Án</h4>
+      <ul>
+        <li><a href="#">Gladia By The Waters</a></li>
+        <li><a href="#">Gladia City</a></li>
+        <li><a href="#">BĐS Việt Nam</a></li>
+        <li><a href="#">BĐS Úc</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Công Ty</h4>
+      <ul>
+        <li><a href="#">Về Chúng Tôi</a></li>
+        <li><a href="#">Tin Tức</a></li>
+        <li><a href="#">Tuyển Dụng</a></li>
+        <li><a href="#">Cổ Đông</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Liên Hệ</h4>
+      <ul>
+        <li><a href="tel:0977487777">0977 48 7777</a></li>
+        <li><a href="mailto:info@dongtayland.vn">info@dongtayland.vn</a></li>
+        <li><a href="#">Chính Sách Bảo Mật</a></li>
+        <li><a href="#">Điều Khoản</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Đông Tây Land. All rights reserved.</span>
+    <span>MST: 0312312011 · 192 Trần Não, Phường An Khánh, TP.HCM</span>
+  </div>
+</footer>
+
+<!-- FLOATING BTNS -->
+<a class="floating-phone" href="tel:0977487777" title="Gọi ngay">📞</a>
+<a class="floating-cta" href="#contact">Booking Ngay</a>
+
+<script>
+// Tab switching
+function switchTab(id) {
+  document.querySelectorAll('.infra-tab').forEach((t,i) => t.classList.toggle('active', ['short','long'][i] === id));
+  document.querySelectorAll('.infra-panels > div').forEach((p,i) => p.classList.toggle('active', ['tab-short','tab-long'][i] === 'tab-'+id));
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none';
+});
+</script>
+</body>
+</html>
